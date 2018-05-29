@@ -5,7 +5,7 @@ describe CukeStepsGem do
     expect(CukeStepsGem::VERSION).not_to be nil
   end
 
-  context "html generation" do
+  context 'html generation' do
     before do
       system 'rm steps.html'
       system 'bundle exec cuke-steps .'
@@ -15,7 +15,7 @@ describe CukeStepsGem do
     end
   end
 
-  context "html generation" do
+  context 'html generation' do
     before do
       system 'rm steps.cf'
       system 'bundle exec cuke-steps -f cf .'

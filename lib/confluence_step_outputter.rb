@@ -6,12 +6,13 @@ require 'fileutils'
 class ConfluenceStepOutputter
   def initialize(file)
     @file = File.open(file, 'w')
-    @previous_type = ""
+    @previous_type = ''
   end
 
   def header
     # No-op
   end
+
   def footer
     @file.puts %(<p>&nbsp;</p>)
     @file.puts %(<p><em>Documentation generated #{Time.now}</em></p>)
@@ -24,7 +25,7 @@ class ConfluenceStepOutputter
   def start_directory(dir)
     @file.puts %(<p>&nbsp;</p>)
     @file.puts "<h2>#{dir}</h2>"
-    @previous_type = ""
+    @previous_type = ''
   end
 
   def end_directory
@@ -33,8 +34,8 @@ class ConfluenceStepOutputter
 
   def start_all
     @file.puts %(<p>&nbsp;</p>)
-    @file.puts "<h2>All definitions alphabetically</h2>"
-    @previous_type = ""
+    @file.puts '<h2>All definitions alphabetically</h2>'
+    @previous_type = ''
   end
 
   def end_all
@@ -60,5 +61,4 @@ class ConfluenceStepOutputter
     @file.puts %( </ac:rich-text-body>)
     @file.puts %(</ac:macro>)
   end
-
 end

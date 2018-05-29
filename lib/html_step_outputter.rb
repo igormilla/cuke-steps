@@ -5,13 +5,13 @@ require 'cgi'
 require 'fileutils'
 
 class HtmlStepOutputter
-  
+
   def initialize(file)
     @file = File.open(file, 'w')
-    @previous_type = ""
+    @previous_type = ''
     @id_number = 0
   end
-  
+
   # HTML file header - customize as needed
   def header
     @file.puts <<-eos
@@ -47,7 +47,7 @@ class HtmlStepOutputter
       <body>
     eos
   end
-  
+
   def footer
     @file.puts <<-eos
       </ul>
@@ -58,7 +58,6 @@ class HtmlStepOutputter
     eos
   end
 
-  
   def close
     @file.close
   end
@@ -108,12 +107,11 @@ class HtmlStepOutputter
     @file.puts %(  </div>)
     @file.puts %(</li>)
   end
-  
+
   private
-  
+
   def new_id
     @id_number += 1
     "id#{@id_number}"
   end
-
 end

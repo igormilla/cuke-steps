@@ -8,8 +8,11 @@ class StepParser
   end
 
   def read(file)
+    puts '>>>>'
     @current_file = file
     @line_number = 0
+    puts '>>'
+    puts @current_file
     @lines = IO.read(file).split(/\r?\n/)
     parse_lines
   end
@@ -29,7 +32,8 @@ class StepParser
 
   def parse_lines
     @comments = []
-    while not @lines.empty?
+    puts @lines.length
+    until @lines.empty?
 
       line = next_line
       case line
@@ -55,11 +59,11 @@ class StepParser
     line_number = @line_number + 1
     code = @comments
     line = ""
-    while !@lines.empty? && !(line =~ /^end\s*$/)
+    while !@lines.empty? && line !~ /^end\s*$/
       line = next_line
       code << line
     end
-    @steps << { :type => type, :name => name, :filename => @current_file, :code => code, :line_number => line_number }
+    @steps << { type: type, name: name, filename: @current_file, code: code, line_number: line_number }
   end
 
   def parse_step_type(line)
