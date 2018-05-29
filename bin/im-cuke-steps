@@ -32,7 +32,7 @@ if options[:format] && !options[:file]
 end
 
 # All other arguments are treated as input directories
-dirs = ['test/common/']#ARGV
+dirs = ARGV
 if dirs.size.zero?
   puts 'No source directories provided, use -h for help'
   exit 1
@@ -78,10 +78,8 @@ dirs.each do |dir|
   s = StepParser.new
   Dir.glob("#{dir}/**/*.rb") do |file|
     s.read(file)
-    puts file
   end
   steps = s.steps
-  puts steps
   all_steps += steps
 
   output.start_directory(dir)

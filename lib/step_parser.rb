@@ -8,11 +8,8 @@ class StepParser
   end
 
   def read(file)
-    puts '>>>>'
     @current_file = file
     @line_number = 0
-    puts '>>'
-    puts @current_file
     @lines = IO.read(file).split(/\r?\n/)
     parse_lines
   end
