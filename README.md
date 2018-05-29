@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/raels/cuke-steps.svg?branch=master)](https://travis-ci.org/raels/cuke-steps)
-
-cuke-steps
+im-cuke-steps
 ==========
 
 Cucumber step documentation.
@@ -19,11 +17,11 @@ You might install with either the gem command or using bundler.
 
 Assuming you installed with Bundler:
 
-> bundle exec cuke-steps \[options\] &lt;directories...&gt;
+> bundle exec im-cuke-steps \[options\] &lt;directories...&gt;
 
 In its simplest form:
 
-> bundle exec cuke-steps features/
+> bundle exec im-cuke-steps features/
 
 Supported options:
 

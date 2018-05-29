@@ -9,7 +9,7 @@ require 'html_step_outputter'
 # Parse command line
 options = {}
 opts = OptionParser.new do |opts|
-  opts.banner = 'Usage: cuke-steps.rb [options] <directories...>'
+  opts.banner = 'Usage: im-cuke-steps.rb [options] <directories...>'
 
   opts.on('-o', '--output FILE', 'Output to FILE') do |file|
     options[:file] = file
