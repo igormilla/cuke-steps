@@ -12,6 +12,6 @@
 /.project
 /.settings
 *.gem
-
+Gemfile.lock
 steps.cf
 DOCUMENTATION.html
