@@ -1,7 +1,5 @@
 # Class that parses step definitions from Ruby files
-
 class StepParser
-
   attr_reader :steps
   def initialize
     @steps = []
@@ -13,7 +11,6 @@ class StepParser
     @lines = IO.read(file).split(/\r?\n/)
     parse_lines
   end
-
 
   private
 
@@ -29,7 +26,6 @@ class StepParser
 
   def parse_lines
     @comments = []
-    puts @lines.length
     until @lines.empty?
 
       line = next_line
@@ -55,7 +51,7 @@ class StepParser
     name = parse_step_name(@lines.first)
     line_number = @line_number + 1
     code = @comments
-    line = ""
+    line = ''
     while !@lines.empty? && line !~ /^end\s*$/
       line = next_line
       code << line
@@ -68,9 +64,8 @@ class StepParser
   end
 
   def parse_step_name(line)
-    line = line.sub(/^(Given|When|Then|Transform) *\(?\/\^?(.*?)\$?\/.*/, '\1 \2')
-    line = line.gsub('\ ', ' ')
-    line
+    regex = Regexp.new(/^(Given|When|Then|And|But) *\'?(.*?)\'\sdo(?:\s\|(.*?)\|)?/)
+    line.sub(regex, '\2')
   end
 
 end

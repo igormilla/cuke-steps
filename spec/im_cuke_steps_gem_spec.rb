@@ -7,11 +7,11 @@ describe CukeStepsGem do
 
   context 'html generation' do
     before do
-      system 'rm steps.html'
+      system 'rm DOCUMENTATION.html'
       system 'bundle exec im-cuke-steps .'
     end
     it 'generates a spec.html file' do
-      expect(File.exist?('steps.html')).to eq(true)
+      expect(File.exist?('DOCUMENTATION.html')).to eq(true)
     end
   end
 

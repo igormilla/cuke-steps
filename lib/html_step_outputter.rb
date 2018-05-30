@@ -85,11 +85,11 @@ class HtmlStepOutputter
   end
 
   def step(step)
-    if @previous_type != step[:type]
+    if @previous_type != step[:filename]
       @file.puts %(</ul>) if @previous_type != ""
-      @file.puts %(<h3>#{step[:type]} definitions</h3>)
+      @file.puts %(<h3>#{step[:filename]}</h3>)
       @file.puts %(<ul class="stepdefs">)
-      @previous_type = step[:type]
+      @previous_type = step[:filename]
     end
 
     id = new_id

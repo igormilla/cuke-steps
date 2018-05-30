@@ -28,11 +28,11 @@ end
 options[:format] = 'html' unless options[:format]
 
 if options[:format] && !options[:file]
-  options[:file] = "steps.#{options[:format]}"
+  options[:file] = "DOCUMENTATION.#{options[:format]}"
 end
 
 # All other arguments are treated as input directories
-dirs = ARGV
+dirs = ['test/common']#ARGV
 if dirs.size.zero?
   puts 'No source directories provided, use -h for help'
   exit 1
@@ -83,7 +83,7 @@ dirs.each do |dir|
   all_steps += steps
 
   output.start_directory(dir)
-  steps.sort!(&sorter)
+  # steps.sort!(&sorter)
   steps.each { |step| output.step(step) }
   output.end_directory
 end
